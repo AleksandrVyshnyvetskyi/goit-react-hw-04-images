@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 export const ImageGallaryItem = ({
   imageURL,
   imageTitle,
-  urlLarge,
+  largeImageURL,
   onClickImage,
 }) => {
   return (
     <li
       className="ImageGalleryItem "
       onClick={() => {
-        onClickImage(urlLarge, imageTitle);
+        onClickImage(largeImageURL, imageTitle);
       }}
     >
       <img src={imageURL} alt={imageTitle} className="ImageGalleryItem-image" />
@@ -22,7 +22,7 @@ ImageGallaryItem.propTypes = {
   onClick: PropTypes.func,
   imgURL: PropTypes.string,
   largeImageURL: PropTypes.string,
-  imgTitle: PropTypes.string,
+  imageTitle: PropTypes.string,
 };
 
 // export function ImageGallaryItem({

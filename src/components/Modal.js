@@ -35,7 +35,7 @@ import { createPortal } from 'react-dom';
 
 const root = document.getElementById('root');
 
-export function Modal({ onClose, urlLarge, dscModalImg }) {
+export function Modal({ onClose, largeImageURL, imageTitle }) {
   useEffect(() => {
     document.addEventListener('keydown', closeModal);
     return () => {
@@ -49,13 +49,11 @@ export function Modal({ onClose, urlLarge, dscModalImg }) {
     }
   };
 
-  console.log(urlLarge);
-
   return createPortal(
     <div className="Overlay" onClick={closeModal}>
       <div className="Modal">
-        <img src={urlLarge} alt={dscModalImg} className="Modal-img" />
-        <p className="Modal-text">{dscModalImg}</p>
+        <img src={largeImageURL} alt={imageTitle} className="Modal-img" />
+        <p className="Modal-text">{imageTitle}</p>
       </div>
     </div>,
     root

@@ -9,7 +9,7 @@ export function GalleryBox({ onClick, images }) {
           <ImageGallaryItem
             key={image.id}
             imageURL={image.webformatURL}
-            urlLarge={image.largeImageURL}
+            largeImageURL={image.largeImageURL}
             imageTitle={image.tags}
             onClickImage={onClick}
           />
@@ -23,19 +23,3 @@ GalleryBox.propTypes = {
   onClick: PropTypes.func,
   images: PropTypes.array,
 };
-
-// export default function ImageList({ items, onClick }) {
-//   return (
-//     <ul className="gallery">
-//       {items.map(item => (
-//         <ImageGaleryItem
-//           key={item.id}
-//           imageURL={item.webformatURL}
-//           imageTitle={item.tags}
-//           imageUrlLarge={item.largeImageURL}
-//           onClickItem={onClick}
-//         />
-//       ))}
-//     </ul>
-//   );
-// }

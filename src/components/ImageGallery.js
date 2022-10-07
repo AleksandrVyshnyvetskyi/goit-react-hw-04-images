@@ -11,10 +11,10 @@ export function ImageGallery({ searchName }) {
   const [page, setPage] = useState(1);
   const prevPage = usePrevious(page);
   const [showModal, setShowModal] = useState(false);
-  const [urlLarge, setUrlLarge] = useState('');
+  const [largeImageURL, setLargeImageURL] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const [title, setTitle] = useState('');
+  const [imageTitle, setImageTitle] = useState('');
 
   useEffect(() => {
     const fetchGallery = async (currentName, currentPage) => {
@@ -52,16 +52,16 @@ export function ImageGallery({ searchName }) {
     setPage(1);
   };
 
-  const openModal = (urlLarge, title) => {
+  const openModal = (largeImageURL, imageTitle) => {
     setShowModal(true);
-    setUrlLarge(urlLarge);
-    setTitle(title);
+    setLargeImageURL(largeImageURL);
+    setImageTitle(imageTitle);
   };
 
   const closeModal = () => {
     setShowModal(false);
-    setUrlLarge('');
-    setTitle('');
+    setLargeImageURL('');
+    setImageTitle('');
   };
 
   const loadMore = () => {
@@ -99,7 +99,11 @@ export function ImageGallery({ searchName }) {
         </div>
       )}
       {showModal && (
-        <Modal onClose={closeModal} urlLarge={urlLarge} dscModalImg={title} />
+        <Modal
+          onClose={closeModal}
+          largeImageURL={largeImageURL}
+          imageTitle={imageTitle}
+        />
       )}
     </div>
   );

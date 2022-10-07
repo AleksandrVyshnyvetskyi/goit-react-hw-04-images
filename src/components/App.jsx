@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles.css'
@@ -6,22 +6,16 @@ import { Searchbar } from "./Searchbar";
 import { ImageGallery } from "./ImageGallery";
 
 
-export  class App extends React.Component {
-  state = {
-    searchName: '',
+export  function App() {
+  const [searchName, setSearchName] = useState('');
+
+  const handlFormSubmit = searchName => {
+    setSearchName(searchName);
   }
 
-  handlFormSubmit = searchName => {
-    this.setState({ 
-      searchName
-    })
-  }
-
-  render (){
-    const {searchName} = this.state;
   return (
     <div className="App">
-      <Searchbar onSubmit={this.handlFormSubmit}/>
+      <Searchbar onSubmit={handlFormSubmit}/>
       <ImageGallery searchName={searchName}/>
       <ToastContainer
       position="top-center"
@@ -37,4 +31,3 @@ export  class App extends React.Component {
     </div>
     )
   }
-}

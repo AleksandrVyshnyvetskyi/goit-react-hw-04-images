@@ -6,7 +6,7 @@ import { Modal } from './Modal';
 
 export function ImageGallery({ searchName }) {
   const [images, setImages] = useState([]);
-  const [error, setError] = useState('');
+  const [newError, setNewError] = useState('');
   const prevSearchName = usePrevious(searchName);
   const [page, setPage] = useState(1);
   const prevPage = usePrevious(page);
@@ -28,7 +28,7 @@ export function ImageGallery({ searchName }) {
           setImages(prevState => [...prevState, ...images]);
         }
       } catch (error) {
-        setError(error);
+        setNewError(newError);
       } finally {
         setLoading(false);
       }

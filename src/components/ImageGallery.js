@@ -46,7 +46,7 @@ export function ImageGallery({ searchName }) {
       resetPage();
       return;
     }
-  }, [searchName, page, prevPage, prevSearchName]);
+  }, [searchName, page, prevPage, prevSearchName, newError]);
 
   const resetPage = () => {
     setPage(1);
